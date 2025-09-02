@@ -1,22 +1,332 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Test Slide</title>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css">
-</head>
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <section>👋 Hello, GitHub Slides!</section>
-      <section>🚀 Slides via GitHub Pages!</section>
-    </div>
-  </div>
+  <meta charset="utf-8" />
+  <title>Data Strategy — Foundations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-  <script>
-    Reveal.initialize();
-  </script>
+  <!-- Reveal core & theme -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme">
+
+  <!-- Optional: code highlighting + simple tweaks -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
+  <style>
+    .reveal h1, .reveal h2 { letter-spacing: .3px; }
+    .reveal section p { line-height: 1.35; }
+    .pill { display:inline-block; padding:.25rem .6rem; border:1px solid #999; border-radius:999px; font-size:.55em; letter-spacing:.3px; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:start; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; align-items:start; }
+    .muted { opacity:.8; font-size:.8em; }
+    .accent { color:#80d4ff; }
+    .box { border:1px solid #444; border-radius:10px; padding:.9rem; }
+    .kpi { font-size:2.2rem; font-weight:700; }
+    .small { font-size: .7em; }
+    .left { text-align:left !important; }
+    .tight li { margin:.25em 0; }
+  </style>
+
+  <!-- Print/PDF support -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" media="print">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" media="print">
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 0. Cover -->
+    <section>
+      <h1>Data Strategy</h1>
+      <h3 class="muted">Foundations for a Modern, AI-Ready Organization</h3>
+      <p class="small muted">Generic template • Company-agnostic • CC-BY</p>
+      <aside class="notes">
+        Purpose: a clean baseline to communicate data vision, operating model, architecture, governance, and value.
+      </aside>
+    </section>
+
+    <!-- 1. Vision -->
+    <section>
+      <h2>Vision</h2>
+      <ul class="tight">
+        <li class="fragment">Turn <b>data into decisions</b> and <b>AI into outcomes</b>.</li>
+        <li class="fragment">Make insights and models <b>reliable, fast, and governed</b>.</li>
+        <li class="fragment">Build a <b>scalable platform</b> that reduces time-to-value.</li>
+      </ul>
+      <p class="muted fragment">North Star: measurable impact on growth, efficiency, and customer experience.</p>
+    </section>
+
+    <!-- 2. Guiding Principles -->
+    <section>
+      <h2>Guiding Principles</h2>
+      <div class="grid-3">
+        <div class="box fragment">
+          <h4>Value First</h4>
+          <ul class="tight small">
+            <li>Business outcomes over vanity metrics</li>
+            <li>Clear KPI ownership</li>
+            <li>“Thin slice” delivery</li>
+          </ul>
+        </div>
+        <div class="box fragment">
+          <h4>Platform over Projects</h4>
+          <ul class="tight small">
+            <li>Reusable, composable components</li>
+            <li>Self-service by default</li>
+            <li>Automate the boring</li>
+          </ul>
+        </div>
+        <div class="box fragment">
+          <h4>Responsible by Design</h4>
+          <ul class="tight small">
+            <li>Governance & lineage baked in</li>
+            <li>Privacy & policy as code</li>
+            <li>Human-in-the-loop for AI</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Operating Model -->
+    <section>
+      <h2>Operating Model</h2>
+      <div class="grid-2">
+        <div class="box fragment">
+          <h4>Org</h4>
+          <ul class="tight small">
+            <li>Central Platform (DE/ML/MLOps)</li>
+            <li>Embedded Analytics in product domains</li>
+            <li>Clear RACI across Data, Product, Eng, Legal</li>
+          </ul>
+        </div>
+        <div class="box fragment">
+          <h4>Ways of Working</h4>
+          <ul class="tight small">
+            <li>Quarterly bets, monthly reviews</li>
+            <li>Experimentation culture</li>
+            <li>SLAs for data products</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Architecture -->
+    <section>
+      <h2>Reference Architecture</h2>
+      <div class="grid-3 small">
+        <div class="box fragment">
+          <h4>Ingest & Quality</h4>
+          <p>Batch & streaming, contracts, tests</p>
+          <span class="pill">CDC</span> <span class="pill">Events</span> <span class="pill">Data Contracts</span>
+        </div>
+        <div class="box fragment">
+          <h4>Storage & Transform</h4>
+          <p>Lakehouse & dbt-style ELT, semantic layer</p>
+          <span class="pill">Lakehouse</span> <span class="pill">dbt</span> <span class="pill">Catalog</span>
+        </div>
+        <div class="box fragment">
+          <h4>Serve & Activate</h4>
+          <p>BI, reverse ETL, feature store, APIs</p>
+          <span class="pill">BI</span> <span class="pill">Reverse ETL</span> <span class="pill">API</span>
+        </div>
+      </div>
+      <aside class="notes">
+        Keep vendor-neutral. Swap icons/names in your repo if needed.
+      </aside>
+    </section>
+
+    <!-- 5. Governance -->
+    <section>
+      <h2>Governance & Risk</h2>
+      <ul class="tight">
+        <li class="fragment"><b>Metadata-first:</b> catalog, lineage, ownership</li>
+        <li class="fragment"><b>Privacy & Compliance:</b> consent, minimization, retention</li>
+        <li class="fragment"><b>Policy as Code:</b> access, PII tags, masking</li>
+        <li class="fragment"><b>AI Controls:</b> evals, guardrails, incident playbooks</li>
+      </ul>
+    </section>
+
+    <!-- 6. Experimentation -->
+    <section>
+      <h2>Experimentation at Scale</h2>
+      <div class="grid-2">
+        <div class="box fragment">
+          <h4>Framework</h4>
+          <ul class="tight small">
+            <li>Central assignment & exposure logs</li>
+            <li>Stats (A/B, CUPED, causal)</li>
+            <li>Sequencing & guardrails</li>
+          </ul>
+        </div>
+        <div class="box fragment">
+          <h4>Success</h4>
+          <ul class="tight small">
+            <li>Lift per 1k users (conversion/retention)</li>
+            <li>Time-to-decision ↓</li>
+            <li>False positives ↓</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MLOps -->
+    <section>
+      <h2>MLOps Lifecycle</h2>
+      <ol class="tight small">
+        <li class="fragment">Problem framing & baselines</li>
+        <li class="fragment">Data contracts & feature store</li>
+        <li class="fragment">Training + evals (offline/online)</li>
+        <li class="fragment">Deployment (batch, real-time, streaming)</li>
+        <li class="fragment">Monitoring (drift, bias, latency)</li>
+        <li class="fragment">Governance (model cards, approvals)</li>
+      </ol>
+    </section>
+
+    <!-- 8. GenAI -->
+    <section>
+      <h2>GenAI: Reference Patterns</h2>
+      <div class="grid-3 small">
+        <div class="box fragment">
+          <h4>RAG</h4>
+          <p>Chunk → index → retrieve → augment → generate</p>
+        </div>
+        <div class="box fragment">
+          <h4>Agents</h4>
+          <p>Plan-act-observe loops with tool use & constraints</p>
+        </div>
+        <div class="box fragment">
+          <h4>Guardrails</h4>
+          <p>Input/output filters, policies, safe-completion</p>
+        </div>
+      </div>
+      <p class="muted fragment">Measure: latency, cost/token, factuality, task success.</p>
+    </section>
+
+    <!-- 9. Roadmap -->
+    <section>
+      <h2>Roadmap (6–12 Months)</h2>
+      <div class="grid-2 small">
+        <div class="box fragment">
+          <h4>Q1–Q2</h4>
+          <ul class="tight">
+            <li>Data contracts + catalog</li>
+            <li>dbt semantic layer v1</li>
+            <li>Experimentation MVP</li>
+            <li>GenAI pilot (RAG)</li>
+          </ul>
+        </div>
+        <div class="box fragment">
+          <h4>Q3–Q4</h4>
+          <ul class="tight">
+            <li>Self-service marts & SLAs</li>
+            <li>Feature store + realtime scoring</li>
+            <li>Model & prompt eval platform</li>
+            <li>Privacy automation & audit</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Metrics -->
+    <section>
+      <h2>Value & Health Metrics</h2>
+      <div class="grid-3">
+        <div class="box fragment left">
+          <div class="kpi accent">TTI ↓</div>
+          <p class="small muted">Time-to-Insight / Time-to-Ship</p>
+        </div>
+        <div class="box fragment left">
+          <div class="kpi accent">Adopt ↑</div>
+          <p class="small muted">Active users of data products</p>
+        </div>
+        <div class="box fragment left">
+          <div class="kpi accent">ROI ↑</div>
+          <p class="small muted">Impact vs. cost (models & pipelines)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Org & Roles -->
+    <section>
+      <h2>Org & Roles</h2>
+      <ul class="tight small">
+        <li class="fragment"><b>Platform:</b> DE, ML, MLOps, Governance</li>
+        <li class="fragment"><b>Embedded:</b> Product Analysts / DS in domains</li>
+        <li class="fragment"><b>COE:</b> Experimentation, Enablement, Education</li>
+      </ul>
+      <p class="muted fragment">Principle: centralize complexity, decentralize usage.</p>
+    </section>
+
+    <!-- 12. Investment -->
+    <section>
+      <h2>Investment Thesis</h2>
+      <ul class="tight">
+        <li class="fragment">Prioritize platforms that reduce marginal cost of the next use case</li>
+        <li class="fragment">Bundle governance with delivery to avoid “toothless” compliance</li>
+        <li class="fragment">Fund durable capabilities; rent the rest</li>
+      </ul>
+    </section>
+
+    <!-- 13. Risks -->
+    <section>
+      <h2>Risks & Mitigations</h2>
+      <div class="grid-2 small">
+        <div class="box fragment">
+          <h4>Tech Risk</h4>
+          <ul class="tight">
+            <li>Vendor lock-in → standards, abstractions</li>
+            <li>Data quality → contracts, tests</li>
+          </ul>
+        </div>
+        <div class="box fragment">
+          <h4>AI Risk</h4>
+          <ul class="tight">
+            <li>Bias / hallucinations → evals, guardrails</li>
+            <li>Privacy → PII tagging, masking</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. Appendix: Stack Examples -->
+    <section>
+      <h2>Appendix: Stack Examples</h2>
+      <p class="small muted">Swap names as needed — keep the pattern.</p>
+      <div class="grid-3 small">
+        <div class="box fragment">
+          <h4>Ingest</h4>
+          <p>EL(T), CDC, events</p>
+        </div>
+        <div class="box fragment">
+          <h4>Transform</h4>
+          <p>dbt, scheduler, tests</p>
+        </div>
+        <div class="box fragment">
+          <h4>Serve</h4>
+          <p>BI, feature store, APIs</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Reveal core -->
+<script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+<!-- Plugins -->
+<script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+    width: 1280, height: 720,
+    controls: true, progress: true, center: true,
+    transition: 'slide'
+  });
+</script>
 </body>
 </html>
